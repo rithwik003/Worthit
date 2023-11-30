@@ -40,6 +40,22 @@ This project is a web application built with Node.js and Express that allows use
 
 5. Open your browser and go to [http://localhost:3000](http://localhost:3000).
 
+
+## File Structure
+
+- **public**: Contains static files like stylesheets and client-side scripts.
+- **src**: Contains server-side JavaScript files.
+- **.gitignore**: Specifies intentionally untracked files to ignore.
+- **.glitch-assets**: Glitch-specific asset configuration file.
+- **LICENSE.md**: The license file for the project.
+- **README.md**: The main documentation file for the project.
+- **TODO.md**: A file listing tasks yet to be done.
+- **index.html**: The main HTML file for the web application.
+- **package-lock.json**: Auto-generated file for npm's dependency tree.
+- **package.json**: File that holds various metadata relevant to the project.
+- **server.js**: The main server-side JavaScript file.
+
+
 ## Usage
 
 1. Access the application through the provided local server URL.
