@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="keywords" content="price drop alert">
+  <meta name="google-adsense-account" content="ca-pub-5677388980983709">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q9S30XHK0V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Q9S30XHK0V');
+</script>
+  
+    <title>Worth it</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.glitch.global/442cf909-6d9f-4a50-9c07-82eb74122d30/android-chrome-512x512.png?v=1698659575301">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.glitch.global/442cf909-6d9f-4a50-9c07-82eb74122d30/android-chrome-512x512.png?v=1698659575301">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://cdn.glitch.global/442cf909-6d9f-4a50-9c07-82eb74122d30/android-chrome-512x512.png?v=1698659575301">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://cdn.glitch.global/442cf909-6d9f-4a50-9c07-82eb74122d30/android-chrome-512x512.png?v=1698659575301">
+  
+  
+    <style>
+      body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #c62433;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #fff;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  border-radius:20px;
+  border-style: solid;
+    border-width:1px;
+}
+
+input[type="submit"] {
+    background: rgb(207,203,59);
+background: linear-gradient(130deg, rgba(207,203,59,1) 0%, rgba(123,126,125,1) 100%);
+    color: #fff;
+    padding: 12px 25px;
+  font-size:2.3vh;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left:33%;
+    border-style: solid;
+    border-width:1px;
+}
+
+input[type="submit"]:hover,input[type="submit"]:active {
+    color:black;
+    background: rgb(221,251,189);
+background: radial-gradient(circle, rgba(221,251,189,1) 12%, rgba(142,246,236,1) 100%);
+  
+}
+
+#productDetails {
+    margin-top: 20px;
+    
+    background: #c62433;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #fff;
+}
+
+h2 {
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+strong {
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 10px;
+}
+
+    #a1{
+      border-radius:20px;
+    }
+    .ab1{
+      padding:20px;
+      padding-left:40px;
+      
+    }
+    /* Add this to your existing CSS */
+
+/* Loader styles */
+.loader {
+    border: 8px solid #c62433;
+  border-top: 8px solid white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none; /* Initially hide the loader */
+    backdrop-filter: blur(5px); 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    #message{
+      color:red;
+      text-align:center;
+      justify-content:center;
+      
+    }
+    
+    #a1{
+      justify-content:center;
+      max-width: 100%; /* Ensure the image doesn't exceed its natural size */
+            max-height: 100%; 
+    }
+    .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 22vh; /* 100% of the viewport height */
+        }
+    
+  </style>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+<body>
+  
+  <div class="center-container">
+  <img id="a1" src="https://i.ibb.co/68sWYd0/worth-it-logo-transformed1.png" alt="logo">
+  </div>
+  <br>
+<form id="priceForm">
+    <label for="url"><strong>Product URL:</strong></label>
+        <input type="text" required id="url2" name="url"><br>
+        <label for="email"><strong>Email:</strong></label>
+        <input type="text" required id="email" name="email"><br>
+    <label for="targetPrice"><strong>Target Price:</strong></label>
+        <input type="text"  id="targetPrice" name="targetPrice"><br><br>
+        <input type="submit" value="Set Alert 🔔">
+    </form>
+  <div class="loader" id="loader"></div>
+  <h2 id="message"></h2>
+
+    <script>
+    $(document).ready(function(){
+        $("#priceForm").on('submit', function(event){
+            
+            event.preventDefault();
+            $.post("/price", $(this).serialize(), function(data){
+                
+                $("#message").text(data);
+              setTimeout(function() {
+                $("#message").text('');
+            }, 50000);
+            });
+          this.reset();
+        });
+    });
+    </script>
+</body> 
+</html>
