@@ -1,60 +1,69 @@
-# Hello SQLite!
+# Amazon Product Price Tracker
 
-This project includes a [Node.js](https://nodejs.org/en/about/) server script that uses a persistent [SQLite](https://www.sqlite.org) database. The app also includes a front-end with two web pages that connect to the database using the server API. 📊
+This project is a web application built with Node.js and Express that allows users to track the price history of a product on Amazon and set up price drop alerts. The application utilizes web scraping techniques to extract product information such as name, image, rating, stock details, and description from the provided Amazon product URL.
 
-The home page presents the user with a poll where they can choose an option, then the page presents the results in a chart. The admin page displays the log of past choices and allows the user to clear it by supplying an admin key (you can set this up by following the steps in `TODO.md`). 🔒
+## Features
 
-_Last updated: 14 August 2023_
+1. **Product Information Retrieval**: Users can enter an Amazon product URL, and the application will fetch and display relevant product details such as name, image, rating, stock details, and description.
 
-## Prerequisites
+2. **Price History**: The application keeps track of the product's price history. The prices are stored in a JSON file (`history.json`) with timestamps, allowing users to see how the price has changed over time.
 
-To get best use out of this project you'll ideally be familiar with JavaScript and have a little Node.js experience–check out [Hello Node](https://glitch.com/~glitch-hello-node) if you haven't already!
+3. **Price Drop Alerts**: Users can set up price drop alerts by providing their email address and a target price. The application uses Node.js `nodemailer` to send an email notification when the product's price drops to or below the specified target.
 
-## What's in this project?
+4. **Periodic Price Checks**: The server periodically checks the current price of the tracked product. If the price is below the target set for any active alerts, an email notification is sent.
 
-← `README.md`: That’s this file, where you can tell people what your cool website does and how you built it.
+## Installation
 
-← `package.json`: The NPM packages for your project's dependencies.
+1. Clone the repository:
 
-← `.env`: The environment is cleared when you initially remix the project, but you will add a new env variable value when you follow the steps in `TODO.md` to set up an admin key.
+   ```bash
+   git clone https://github.com/rithwik003/Worthit.git
+   ```
 
-### Server and database
+2. Navigate to the project directory:
 
-← `server.js`: The Node.js server script for your new site. The JavaScript defines the endpoints in the site API. The API processes requests, connects to the database using the `sqlite` script in `src`, and sends info back to the client (the web pages that make up the app user interface, built using the Handlebars templates in `src/pages`).
+   ```bash
+   cd Worthit
+   ```
 
-← `/src/sqlite.js`: The database script handles setting up and connecting to the SQLite database. The `server.js` API endpoints call the functions in the database script to manage the data.
+3. Install dependencies:
 
-← `/src/data.json`: The data config file includes the database manager script–`server.js` reads the `database` property to import the correct script.
+   ```bash
+   npm install
+   ```
 
-When the app runs, the scripts build the database:
+4. Start the server:
 
-← `.data/choices.db`: Your database is created and placed in the `.data` folder, a hidden directory whose contents aren’t copied when a project is remixed. You can see the contents of `.data` in the console by selecting __Tools__ >  __Logs__.
+   ```bash
+   npm start
+   ```
 
-### User interface
+5. Open your browser and go to [http://localhost:3000](http://localhost:3000).
 
-← `public/style.css`: The style rules that define the site appearance.
+## Usage
 
-← `src/pages`: The handlebars files that make up the site user interface. The API in `server.js` sends data to these templates to include in the HTML.
+1. Access the application through the provided local server URL.
 
-← `src/pages/index.hbs`: The site homepage presents a form when the user first visits. When the visitor submits a preference through the form, the app calls the `POST` endpoint `/`, passing the user selection. The `server.js` endpoint updates the database and returns the user choices submitted so far, which the page presents in a chart (using [Chart.js](https://www.chartjs.org/docs/)–you can see the code in the page `head`).
+2. Enter the Amazon product URL in the input field on the homepage.
 
-← `src/pages/admin.hbs`: The admin page presents a table displaying the log of most recent picks. You can clear the list by setting up your admin key (see `TODO.md`). If the user attempts to clear the list without a valid key, the page will present the log again.
+3. Click on the "Get Product Information" button to retrieve and display the product details.
 
-← `src/seo.json`: When you're ready to share your new site or add a custom domain, change SEO/meta settings in here.
+4. Optionally, set up a price drop alert by entering your email address and the desired target price.
 
-## Try this next 🏗️
+5. The server will periodically check the current price of the tracked product. If the price drops to or below the specified target, you will receive an email notification.
 
-Take a look in `TODO.md` for steps in setting up your admin key and adding to the site functionality.
+## Dependencies
 
-💡 __Want to use the server script as an API without using the front-end UI? No problem! Just send a query parameter `?raw=json` with your requests to return JSON, like this (replace the first part of the URL to match your remix): `glitch-hello-sqlite.glitch.me?raw=json`__
+- [Express](https://expressjs.com/): Web application framework for Node.js.
+- [Axios](https://axios-http.com/): HTTP client for making requests to Amazon.
+- [Cheerio](https://cheerio.js.org/): A fast, flexible, and lean implementation of jQuery for parsing HTML.
+- [Node-cron](https://www.npmjs.com/package/node-cron): A cron-like scheduler for Node.js.
+- [Nodemailer](https://nodemailer.com/): Send emails with Node.js.
 
-___Check out [Blank SQLite](https://glitch.com/~glitch-blank-sqlite) for a minimal demo of get, post, put, and delete methods.___
+## Note
 
-![Glitch](https://cdn.glitch.com/a9975ea6-8949-4bab-addb-8a95021dc2da%2FLogo_Color.svg?v=1602781328576)
+Ensure that you have [Node.js](https://nodejs.org/) installed on your machine before running the application.
 
-## You built this with Glitch!
+**Disclaimer**: This application uses web scraping techniques to extract data from Amazon. Be aware that web scraping may violate the terms of service of the targeted website. Use this application responsibly and consider checking the terms of service of the websites you are scraping data from.
 
-[Glitch](https://glitch.com) is a friendly community where millions of people come together to build web apps and websites.
-
-- Need more help? [Check out our Help Center](https://help.glitch.com/) for answers to any common questions.
-- Ready to make it official? [Become a paid Glitch member](https://glitch.com/pricing) to boost your app with private sharing, more storage and memory, domains and more.
+Feel free to contribute, report issues, or suggest improvements!
