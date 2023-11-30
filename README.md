@@ -58,15 +58,22 @@ This project is a web application built with Node.js and Express that allows use
 
 ## Usage
 
-1. Access the application through the provided local server URL.
+1. Access the application through the provided URL.
+<img width="737" alt="image" src="https://github.com/rithwik003/Worthit/assets/112548853/d8a30d2e-0a07-4957-a8db-d5d045bf0a26">
 
 2. Enter the Amazon product URL in the input field on the homepage.
+<img width="736" alt="image" src="https://github.com/rithwik003/Worthit/assets/112548853/64e8317b-ab24-479f-925c-11690a8d86d1">
 
-3. Click on the "Get Product Information" button to retrieve and display the product details.
+3. Click on the "Submit" button to retrieve and display the product details and the product price history graph.
+<img width="652" alt="image" src="https://github.com/rithwik003/Worthit/assets/112548853/527bb98e-bedb-4d6b-99bd-526ef663a7e8">
+<img width="948" alt="image" src="https://github.com/rithwik003/Worthit/assets/112548853/e51840f2-bc30-4cd7-b567-264038bef23e">
+<img width="470" alt="image" src="https://github.com/rithwik003/Worthit/assets/112548853/4a16abec-5dee-455d-8267-ce242df1eab6">
 
-4. Optionally, set up a price drop alert by entering your email address and the desired target price.
+4. Optionally, set up a price drop alert by clicking on set price alert and entering your email address and the desired target price.
+<img width="486" alt="image" src="https://github.com/rithwik003/Worthit/assets/112548853/18041051-1630-4ed3-930a-34840dbd1574">
 
 5. The server will periodically check the current price of the tracked product. If the price drops to or below the specified target, you will receive an email notification.
+<img width="704" alt="image" src="https://github.com/rithwik003/Worthit/assets/112548853/c3120537-89c0-40f8-87d4-d1bff89c00a4">
 
 ## Dependencies
 
